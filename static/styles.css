@@ -1,0 +1,315 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('images/website_background_image.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-attachment: fixed; /* Keep background fixed */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensure body is always at least viewport height */
+    color: #2c3e50; /* Default text color */
+}
+
+h1, h2, h3 {
+    color: #2c3e50; /* Dark grey for headings */
+    margin-bottom: 10px;
+}
+
+a {
+    color: #3498db; /* Blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2980b9; /* Darker blue on hover */
+}
+
+/* Search and filter styles */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Wrap on small screens */
+}
+
+.search-container input,
+.search-container select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    width: 100%;
+    max-width: 250px; /* Limit width for input and select */
+    margin-bottom: 10px; /* Add spacing for mobile */
+}
+
+.search-container button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #2980b9;
+}
+
+/* Patient list styles */
+#patients-container {
+    margin-top: 20px;
+}
+
+#patients-container ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+#patients-container li {
+    background: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px); /* 3 items per row */
+    box-sizing: border-box;
+    transition: box-shadow 0.3s;
+}
+
+#patients-container li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Lift on hover */
+}
+
+#patients-container h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+#patients-container p {
+    margin: 5px 0;
+}
+
+/* Button for patient profile */
+.view-profile-btn {
+    background-color: #21618c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.view-profile-btn:hover {
+    background-color: #21618c;
+    transform: translateY(-2px); /* Lift button on hover */
+}
+
+/* Updated Profile page styles */
+.profile-container {
+    max-width: 700px;
+    padding: 30px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent for depth */
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #34495e; /* Darker text for heading */
+    text-align: center;
+}
+
+.profile-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #34495e; /* Darker text for heading */
+}
+
+.profile-container .info-section p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.profile-container h3 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #2980b9; /* Blue for section headings */
+    text-decoration: underline;
+}
+
+/* Medications and adherence lists */
+.medication-list, .adherence-list {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.medication-list li, .adherence-list li {
+    margin: 8px 0;
+    padding: 10px;
+    background-color: rgba(46, 204, 113, 0.1); /* Light green background for items */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.medication-list li:hover, .adherence-list li:hover {
+    transform: translateY(-3px);
+}
+
+/* Button styles */
+.profile-container a.button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container a.button:hover {
+    background-color: #21618c;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .profile-container h1 {
+        font-size: 2.2em;
+    }
+
+    .profile-container p {
+        font-size: 1.1em;
+    }
+
+    .profile-container h3 {
+        font-size: 1.5em;
+    }
+
+    #patients-container li {
+        width: calc(50% - 20px); /* 2 items per row on medium screens */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-container h1 {
+        font-size: 1.8em;
+    }
+
+    .profile-container p {
+        font-size: 1em;
+    }
+
+    .profile-container h3 {
+        font-size: 1.3em;
+    }
+
+    #patients-container li {
+        width: 100%; /* Single column for small screens */
+    }
+}
+
+/* Welcome page styles */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: left;
+    background-image: url('{{ url_for('static', filename='website_background_image.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+}
+
+.welcome-container h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-container p {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-container h1 {
+        font-size: 2.2em;
+    }
+
+    .profile-container p {
+        font-size: 1.1em;
+    }
+
+    .profile-container h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-container h1 {
+        font-size: 1.8em;
+    }
+
+    .profile-container p {
+        font-size: 1em;
+    }
+
+    .profile-container h3 {
+        font-size: 1.3em;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Patients List</h1>
+
+    <!-- Search and Filter Section -->
+    <div class="search-container">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Search by name..." required>
+            <button type="submit">Search</button>
+        </form>
+
+        <form action="/filter" method="get">
+            <select name="age">
+                <option value="All" {% if not age or age == "All" %}selected{% endif %}>All</option>
+                <option value="5-10" {% if age == "5-10" %}selected{% endif %}>5-10</option>
+                <option value="11-20" {% if age == "11-20" %}selected{% endif %}>11-20</option>
+                <option value="21-30" {% if age == "21-30" %}selected{% endif %}>21-30</option>
+                <option value="31-40" {% if age == "31-40" %}selected{% endif %}>31-40</option>
+                <option value="41-50" {% if age == "41-50" %}selected{% endif %}>41-50</option>
+                <option value="51-60" {% if age == "51-60" %}selected{% endif %}>51-60</option>
+                <option value="61-70" {% if age == "61-70" %}selected{% endif %}>61-70</option>
+                <option value="71-80" {% if age == "71-80" %}selected{% endif %}>71-80</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    <!-- Patients List Section -->
+    <div id="patients-container">
+        <ul>
+            {% for patient in patients %}
+            <li>
+                <h2>{{ patient.name }}</h2>
+                <p>Age: {{ patient.age }}</p>
+                <p>Contact: {{ patient.contact }}</p>
+                <p>Address: {{ patient.address }}</p>
+                <form action="/patients/{{ patient._id }}" method="get">
+                    <button type="submit" class="view-profile-btn">View Profile</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
